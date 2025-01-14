@@ -12,13 +12,14 @@ import Entertainment from "./components/Entertainment";
 import Accessories from "./components/Accessories";
 import Support from "./components/Support";
 import "./App.css";
-
+import Footer from "./components/Footer";
 function App() {
   return (
     <>
       <Navbar />
       
         <Routes>
+          <Route path="/" element={<Store />} />
           <Route path="/store" element={<Store />} />
           <Route path="/mac" element={<Mac />} />
           <Route path="/ipad" element={<Ipad />} />
@@ -31,7 +32,7 @@ function App() {
           <Route path="/accessories" element={<Accessories />} />
           <Route path="/support" element={<Support />} />
         </Routes>
-      
+      <Footer/>
     </>
   );
 }

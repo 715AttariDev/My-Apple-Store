@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <div className="container mx-auto px-4 py-2 relative">
-      <nav className="flex items-center justify-between">
+      <nav className="flex items-center justify-between w-full">
         {/* Logo Section */}
         <div className="logo flex items-center">
           <img
@@ -60,6 +60,7 @@ const Navbar = () => {
           <div
             className="menu-icon cursor-pointer text-gray-700 hover:text-black lg:hidden"
             onClick={toggleSidebar}
+            aria-label="Toggle menu"
           >
             {isSidebarOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
           </div>
@@ -68,10 +69,11 @@ const Navbar = () => {
 
       {/* Sidebar for Small Screens */}
       <div
-        className={`fixed top-0 left-0 w-2/3 h-full bg-white shadow-lg z-50 p-6 transition-transform duration-300 ${
+        className={`fixed top-0 left-0 w-2/3 h-full bg-white shadow-lg z-50 p-6 transition-transform duration-300 ease-in-out transform ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
         aria-hidden={!isSidebarOpen}
+        role="navigation"
       >
         <ul className="space-y-4 text-gray-700 text-sm font-small">
           {[
@@ -105,6 +107,7 @@ const Navbar = () => {
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-40"
           onClick={() => setIsSidebarOpen(false)}
+          aria-hidden="true"
         ></div>
       )}
     </div>
